@@ -53,7 +53,9 @@ app.get("/", (req, res) => {
       console.log(err);
       res.status(400).send("NOT OK");
     } else {
-      res.json(result);
+      res.json(
+        result.filter((person) => checkNumberplates(person.numberplates))
+      );
     }
   });
 });
